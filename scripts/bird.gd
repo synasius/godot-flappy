@@ -2,6 +2,8 @@ extends RigidBody2D
 
 
 func _ready():
+	set_linear_velocity(Vector2(50, get_linear_velocity().y))
+
 	set_process_input(true)
 	set_fixed_process(true)
 
@@ -11,6 +13,7 @@ func _fixed_process(delta):
 	# every frame.
 	if get_rot() > 0.5235:
 		set_rot(0.5235)
+		set_angular_velocity(0)
 
 	if get_linear_velocity().y > 0:
 		set_angular_velocity(1.5)
