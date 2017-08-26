@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 const STAGE_GAME = "res://stages/game_stage.tscn"
+const STAGE_MENU = "res://stages/menu_stage.tscn"
 
 signal stage_changed
 
@@ -20,6 +21,7 @@ func change_stage(stage_path):
 
 	# fade to black
 	get_node("anim").play("fade_in")
+	audio_player.play("sfx_swooshing")
 	yield(get_node("anim"), "finished")
 
 	# change scene
